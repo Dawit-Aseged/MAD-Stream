@@ -1,4 +1,4 @@
-import { element } from 'protractor';
+import { CommunicationService } from './../communication.service';
 import { Component, OnInit } from '@angular/core';
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout'
 import { Observable } from 'rxjs';
@@ -12,13 +12,13 @@ import { Observable } from 'rxjs';
 export class ToolbarComponent implements OnInit {
 
   isHandset: Observable<BreakpointState> = this.breakpointObserver.observe(Breakpoints.Handset);
-  constructor(private breakpointObserver: BreakpointObserver) { }
+  constructor(private breakpointObserver: BreakpointObserver, private commService: CommunicationService) { }
 
   ngOnInit(): void {
   }
 
-  menuClick(element: HTMLDivElement): void {
-    alert("Yee Haw")
+  menuClick() {
+    this.commService.toggleSidenav();
   }
 
 }

@@ -1,0 +1,18 @@
+.sidenav {
+  height: 100%;
+  width: 0;
+  background-color: pink;
+  transition: 0.3s all ease-in-out;
+}
+
+.sidenavOpened{
+  transition: 0.3s all ease-in-out;
+  width: 150px;
+}
+
+
+.content {
+  background-color: blue;
+  flex: 1;
+}
+
