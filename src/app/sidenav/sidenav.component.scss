@@ -1,18 +1,48 @@
+$sidenavWidth: 15vw;
+$handsetSidenavWidth: 50vw;
+$sidenavColor: rgb(65, 75, 89);
+
+* {
+  transition: 0.3s all ease-in-out;
+
+}
 .sidenav {
   height: 100%;
   width: 0;
-  background-color: pink;
-  transition: 0.3s all ease-in-out;
+  opacity: 0;
+  background-color: $sidenavColor;
+  overflow: hidden;
 }
 
+.sidenavOverlay {
+  position: fixed;
+}
 .sidenavOpened{
-  transition: 0.3s all ease-in-out;
-  width: 150px;
+  opacity: 1;
+  width: $sidenavWidth;
 }
 
+.sidenavOverlayOpened {
+  opacity: 1;
+  width: $handsetSidenavWidth;
+}
 
+.overlay {
+  position: fixed;
+  width: 0;
+  opacity: 0;
+}
+.overlayEnabled {
+  opacity: 1;
+  margin-left: $handsetSidenavWidth;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+
+}
 .content {
-  background-color: blue;
   flex: 1;
 }
+
+
 

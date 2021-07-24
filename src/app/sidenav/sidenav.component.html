@@ -1,10 +1,22 @@
-
-  <div class="sidenav" [ngClass]="{sidenavOpened: (this.isSidenavOpen)}" >
-  asdf
+  <!--
+    The following div has 4 possible classes
+    1. "Sidenav" is for the side navigation if it is not handheld (push sidenav) and closed (i.e. Width = 0)
+    2. "Sidenav Opened" is for non-handheld devices and the width is 250px
+    3. "Sidenav Overlay" is for handheld devices (Sidenav appears on top)
+    4. "Sidenav Overlay Opened" is for handheld devices when opened (Width = 50vw)
+   -->
+  <div class="sidenav"[ngClass]="{
+    sidenavOpened: (this.isSidenavOpen) && !(isHandset | async)!.matches,
+    sidenavOverlay: (isHandset | async)!.matches,
+    sidenavOverlayOpened: (this.isSidenavOpen) && (isHandset | async)!.matches}" >
+    asdf
   </div>
-  <div class="overlay"></div>
-  <div class="content">
-  ddd
+  <!--
+    The class "Sidenav Opened For Content" is to handle the content dimming if the device is handheld. This allows
+    the background to be dimmed
+   -->
+   <div class="overlay" [ngClass]="{overlayEnabled: (this.isSidenavOpen) && (isHandset | async)!.matches}" (click)="contentClicked(content)"></div>
+  <div #content class="content">
+    <button id="test" (click)="test()">Test</button>
   </div>
-
 
