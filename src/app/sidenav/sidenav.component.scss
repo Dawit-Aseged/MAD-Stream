@@ -1,10 +1,8 @@
-$sidenavWidth: 15vw;
-$handsetSidenavWidth: 50vw;
-$sidenavColor: rgb(65, 75, 89);
+@import "../../variables.scss";
 
 * {
   transition: 0.3s all ease-in-out;
-
+  color: $fontColor;
 }
 .sidenav {
   height: 100%;
@@ -44,5 +42,35 @@ $sidenavColor: rgb(65, 75, 89);
   flex: 1;
 }
 
+.button-list{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  padding-top: 15px;
+  a {
+    svg {
+      height: 4vh;
+      padding-left: 10%;
+    }
+    display: flex;
+    align-items: center;
+    width: 85%;
+    height: 6vh;
+    min-height: 3em;
+    background-color: transparent;
+    box-shadow: none;
+    border: 2px solid $fontColor;
+    margin-top: 15px;
+    border-radius: 5px;
+    transition: 0.15s all ease-in-out;
+  }
 
+  a:hover {
+    background-color: $buttonHover;
+  }
 
+  a:active {
+    background-color: $buttonActive;
+  }
+}

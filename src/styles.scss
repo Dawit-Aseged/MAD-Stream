@@ -1,5 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: 'Roboto';
+  src: url('../assets/fonts/Roboto-Regular.ttf'), /* IE9 Compat Modes */
+  url('../assets/fonts/Roboto-Regular.ttf')  format('truetype'); /* Safari, Android, iOS */
+
+  font-family: 'Roboto Light';
+  src: url('../assets/fonts/Roboto-Light.ttf'), /* IE9 Compat Modes */
+  url('../assets/fonts/Roboto-Light.ttf')  format('truetype'), /* Safari, Android, iOS */
+}
+
 html, body {
+  font-family: 'Roboto Light';
   margin: 0;
   height: 100%;
 }

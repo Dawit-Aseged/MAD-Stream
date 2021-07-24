@@ -1,22 +1,27 @@
+@import "../../variables.scss";
+
 .toolbar {
-  height: 56px;
-  background-color: rgba(54, 54, 54, 0.3);
+  height: 64px;
+  background-color: $toolbarColor;
   display: flex;
   align-items: center;
   .svg-container {
     opacity: 1;
     height: 100%;
+    width: 64px;
     display: flex;
     align-items: center;
     justify-content: center;
-
     transition: 0.2s ease;
-
     svg {
-
-      height: 35px;
+      height: 30px;
     }
 
+  }
+  span {
+    margin-left: 1em;
+    font-size: 1.5em;
+    color: white;
   }
 
   .svg-container:hover{
@@ -31,5 +36,8 @@
 }
 
 .toolbarHandheld {
-  height: 48px;
+  height: 56px;
+  .svg-container {
+    width: 56px;
+  }
 }

@@ -29,6 +29,7 @@ export class SidenavComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.commService.changeSidenav(!this.isMobile);
   }
 
   ngOnDestroy(): void {
@@ -39,7 +40,4 @@ export class SidenavComponent implements OnInit, OnDestroy {
       this.commService.toggleSidenav();
   }
 
-  test() {
-    console.log("Test")
-  }
 }
