@@ -8,9 +8,35 @@ app.use(function(req, res, next) {
 });
 
 app.get("/", (req, res)=> {
+  // This is reserved for hosting the angular file
   res.status(200).json("Works")
 })
 
+app.get("/dapi/movies", (req, res) => {
+  res.status(200).json({
+    movies: [
+      {
+        movie: "Some Movie",
+        location: "D:\\Videos\\Movies\\Army of The Dead.mp4"
+      },
+
+      {
+        movie: "Some Movie",
+        location: "D:\\Videos\\Movies\\Cosmic Sin.mp4"
+      },
+
+      {
+        movie: "Some Movie",
+        location: "D:\\Videos\\Movies\\Mortal Kombat.mp4"
+      },
+
+      {
+        movie: "Some Movie",
+        location: "D:\\Videos\\Movies\\Raya and the Last Dragon.mp4"
+      }
+    ]
+  })
+})
 app.listen(8000, () => {
   console.log("Listening on Port 8000")
 })
