@@ -1,0 +1,37 @@
+.toolbar {
+  height: 56px;
+  background-color: rgba(54, 54, 54, 0.3);
+  display: flex;
+  align-items: center;
+  .svg-container {
+    opacity: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: 0.2s ease;
+
+    svg {
+
+      height: 35px;
+    }
+
+    span {
+    }
+  }
+
+  .svg-container:hover{
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+
+  .svg-container:active{
+    background-color: rgba(0, 0, 0, 0.4);
+
+  }
+
+}
+
+.toolbarHandheld {
+  height: 48px;
+}
