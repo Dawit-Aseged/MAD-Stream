@@ -36,7 +36,7 @@ app.post('/dapi/save', (req, res) => { // ASSUMING THERE'S A FORM WITH AN ACTION
     if (!dirPath) {
         return res.status(401).send("Didnt add a directory")
     } else {
-
+        Dir.AddDirectory(dirPath);
         return res.status(200).send("Directory Added!")
     }
 })
