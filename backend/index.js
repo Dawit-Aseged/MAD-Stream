@@ -1,8 +1,12 @@
 const express = require("express");
 const app = express();
-const Dir = require("./helperFunctions")
+const Dir = require("./helperFunctions");
+
+const Movies = require("./routes/movies");
 
 app.use(express.urlencoded({ extended: false }));
+//app.use(express.json); // USED TO PARSE JSON.
+app.use('/dapi/movies', Movies); // USING THE ROUTES SPECIFIED IN THE ROUTES FOLDER.
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -13,21 +17,6 @@ app.use(function(req, res, next) {
 app.get("/", (req, res) => {
     // This is reserved for hosting the angular file
     res.status(200).json("Works")
-})
-
-app.get("/dapi/movies", (req, res) => {
-    res.status(200).json({
-        newMovies: Dir.FinalDir('../Database/addresses.txt'),
-    })
-})
-
-app.get('/dapi/movies/:dirPathh', (req, res) => {
-    let { dirPathh } = req.params;
-    if (!dirPathh) {
-        return res.status(404).send("File Path not accessed.");
-    } else {
-        return res.status(200).send("File Path accessed successfully.");
-    }
 })
 
 app.post('/dapi/save', (req, res) => { // ASSUMING THERE'S A FORM WITH AN ACTION NAMED '/DAPI/SAVE', WITH A POST METHOD PLUS AN INPUT FORM OF TYPE=text AND NAME=dirPath

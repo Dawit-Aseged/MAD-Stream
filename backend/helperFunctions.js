@@ -41,7 +41,7 @@ const Directories = (Directory) => {
  * 
  */
 const FinalDir = (finalDirPath) => {
-    let AllFiles = '';
+    let AllFiles = [];
     const array = FS.readFileSync(finalDirPath).toString().replace(/\r\n/g, '\n').split('\n');
 
     for (let i of array) {
