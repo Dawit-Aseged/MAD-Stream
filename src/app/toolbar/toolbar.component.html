@@ -3,4 +3,36 @@
     <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 0 24 24" width="48px" fill="#FFFFFF"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
   </div>
   <span>MAD Streamer</span>
+  <div class="spacer"></div>
+  <div class="search-region" [ngClass]="{searchRegionHandheld: (isHandset | async)!.matches, searchHandheldActive: searchActive && (isHandset | async)!.matches}">
+    <input #input type="text" class="search-input" (focusout)="inputFocusLeave(input)" />
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 46.806 46.807"
+     class="search-icon"
+     (click)="searchClicked(input)"
+    >
+      <defs>
+        <style>
+          .cls-1 {
+            fill: #fff;
+            stroke: rgba(108,108,108,0);
+            fill-rule: evenodd;
+          }
+
+          .cls-2 {
+            filter: url(#Path_402);
+          }
+        </style>
+        <filter id="Path_402" x="0" y="0" width="46.806" height="46.807" filterUnits="userSpaceOnUse">
+          <feOffset dy="3" input="SourceAlpha"/>
+          <feGaussianBlur stdDeviation="3" result="blur"/>
+          <feFlood flood-opacity="0.161"/>
+          <feComposite operator="in" in2="blur"/>
+          <feComposite in="SourceGraphic"/>
+        </filter>
+      </defs>
+      <g class="cls-2" transform="matrix(1, 0, 0, 1, 0, 0)">
+        <path id="Path_402-2" data-name="Path 402" class="cls-1" d="M927.728-1397.642h-1.253l-.435-.432a10.208,10.208,0,0,0,2.474-6.668A10.257,10.257,0,0,0,918.257-1415,10.257,10.257,0,0,0,908-1404.743a10.256,10.256,0,0,0,10.257,10.257,10.211,10.211,0,0,0,6.667-2.471l.436.432v1.25l7.887,7.875,2.353-2.353-7.871-7.89Zm-9.471,0a7.1,7.1,0,0,1-7.1-7.1,7.1,7.1,0,0,1,7.1-7.1,7.1,7.1,0,0,1,7.1,7.1,7.1,7.1,0,0,1-7.1,7.1Z" transform="translate(-898.5 1421.5)"/>
+      </g>
+    </svg>
+  </div>
 </div>

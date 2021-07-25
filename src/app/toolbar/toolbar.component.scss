@@ -1,5 +1,7 @@
 @import "../../variables.scss";
-
+* {
+  transition: 0.2s all ease-in-out;
+}
 .toolbar {
   height: 64px;
   background-color: $toolbarColor;
@@ -37,7 +39,56 @@
 
 .toolbarHandheld {
   height: 56px;
+  span {
+    margin: 0;
+    font-size: 1.2em;
+  }
   .svg-container {
     width: 56px;
+  }
+}
+.spacer {
+  flex: 1 1 auto;
+}
+.search-region {
+  display: flex;
+  align-items: center;
+  margin-right: 2em;
+  border: 1px solid rgba(0, 255, 0, 0.3);
+  border-radius: 5px;
+  input {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    color: $fontColor;
+    font-size: 1.5em;
+    font-family: "Roboto Light";
+    width: 15vw;
+  }
+  svg{
+    height: 35px;
+    border-radius: 5px;
+  }
+
+}
+
+.searchRegionHandheld {
+  margin-right: 1em;
+  border: 1px solid rgba(0, 255, 0, 0);
+  input {
+    font-size: 1em;
+    width: 0;
+    visibility: hidden;
+  }
+  svg{
+    height: 30px;
+  }
+}
+
+.searchHandheldActive {
+  border: 1px solid rgba(0, 255, 0, 0.5);
+  input {
+    visibility: visible;
+    width: 25vw;
   }
 }

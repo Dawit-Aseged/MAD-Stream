@@ -12,6 +12,7 @@ import { Observable } from 'rxjs';
 export class ToolbarComponent implements OnInit {
 
   isHandset: Observable<BreakpointState> = this.breakpointObserver.observe(Breakpoints.Handset);
+  searchActive = false;
   constructor(private breakpointObserver: BreakpointObserver, private commService: CommunicationService) { }
 
   ngOnInit(): void {
@@ -21,4 +22,16 @@ export class ToolbarComponent implements OnInit {
     this.commService.toggleSidenav();
   }
 
+  searchClicked(input: HTMLInputElement){
+    this.searchActive = true;
+    input.focus();
+  }
+
+  // Checks if there is anything in the search bar and removes border accordingly
+  inputFocusLeave(input: HTMLInputElement) {
+    if(input.value == undefined ||input.value.trim() == ""){
+      input.value = "";
+      this.searchActive = false
+    }
+  }
 }
