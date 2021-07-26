@@ -1,0 +1,9 @@
+.container {
+  max-height: calc(100vh - 6.5em);
+  padding-top: 1em;
+  padding-bottom: 1em;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+}

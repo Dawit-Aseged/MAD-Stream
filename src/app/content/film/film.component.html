@@ -1,0 +1,11 @@
+<div class="film" [ngClass]="{filmHandheld: (isHandset | async)!.matches}">
+  <div class="image">
+    <img src="{{imgSrc}}">
+  </div>
+  <span class="title">
+    {{title}}
+  </span>
+  <span class="description">
+    {{description}}
+  </span>
+</div>

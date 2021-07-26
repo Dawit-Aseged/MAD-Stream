@@ -10,6 +10,7 @@
   opacity: 0;
   background-color: $sidenavColor;
   overflow: hidden;
+  z-index: 2;
 }
 
 .sidenavOverlay {
@@ -35,11 +36,12 @@
   margin-left: $handsetSidenavWidth;
   height: 100%;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.5);
 
 }
 .content {
   flex: 1;
+  overflow: hidden;
 }
 
 .button-list{
