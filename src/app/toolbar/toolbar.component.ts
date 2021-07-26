@@ -24,7 +24,9 @@ export class ToolbarComponent implements OnInit {
 
   searchClicked(input: HTMLInputElement){
     this.searchActive = true;
-    input.focus();
+    setTimeout(() => {
+      input.focus();
+    }, 100);
   }
 
   // Checks if there is anything in the search bar and removes border accordingly
