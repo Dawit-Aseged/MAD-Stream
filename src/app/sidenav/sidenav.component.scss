@@ -60,9 +60,8 @@
     width: 85%;
     height: 6vh;
     min-height: 3em;
-    background-color: transparent;
-    box-shadow: none;
-    border: 2px solid $fontColor;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);;
+
     margin-top: 15px;
     border-radius: 5px;
     transition: 0.15s all ease-in-out;
@@ -75,4 +74,8 @@
   a:active {
     background-color: $buttonActive;
   }
+}
+
+.activeButton {
+  border: 2px solid rgba(0, 255, 0, 0.3);
 }

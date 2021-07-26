@@ -17,7 +17,6 @@ export class FilmComponent implements OnInit {
   isHandset: Observable<BreakpointState> = this.breakpointObserver.observe(Breakpoints.Handset);
 
   constructor(private breakpointObserver: BreakpointObserver) {
-    console.log(this.imgSrc)
   }
 
   ngOnInit(): void {
