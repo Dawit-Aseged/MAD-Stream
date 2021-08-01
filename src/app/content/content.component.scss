@@ -6,6 +6,10 @@
   justify-content: space-evenly;
   flex-wrap: wrap;
   overflow-y: scroll;
+  app-film {
+    width: 20%;
+    margin: 1rem;
+  }
 }
 ::-webkit-scrollbar {
   width: 10px;
@@ -31,4 +35,10 @@
 
 .containerHandheld {
   max-height: calc(100vh - 88px);
+  app-film {
+    width: 40%;
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
+

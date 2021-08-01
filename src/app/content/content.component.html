@@ -1,27 +1,5 @@
 <div class="container" [ngClass]="{containerHandheld: (isHandset | async)!.matches}">
-  <app-film title="Movie Title" description="Movie Description"></app-film>
-  <app-film title="Movie Title" description="Movie Description"></app-film>
 
-  <app-film title="Movie Title" description="Movie Description"></app-film>
-
-  <app-film title="Movie Title" description="Movie Description"></app-film>
-  <app-film title="Movie Title" description="Movie Description"></app-film>
-  <app-film title="Movie Title" description="Movie Description"></app-film>
-
-  <app-film title="Movie Title" description="Movie Description"></app-film>
-
-  <app-film title="Movie Title" description="Movie Description"></app-film>
-  <app-film title="Movie Title" description="Movie Description"></app-film>
-  <app-film title="Movie Title" description="Movie Description"></app-film>
-
-  <app-film title="Movie Title" description="Movie Description"></app-film>
-
-  <app-film title="Movie Title" description="Movie Description"></app-film>
-  <app-film title="Movie Title" description="Movie Description"></app-film>
-  <app-film title="Movie Title" description="Movie Description"></app-film>
-
-  <app-film title="Movie Title" description="Movie Description"></app-film>
-
-  <app-film title="Movie Title" description="Movie Description"></app-film>
+  <app-film *ngFor="let movie of movies" [title]="movie.name" [description]="movie.duration"></app-film>
 
 </div>
