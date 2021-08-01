@@ -33,7 +33,7 @@ export class CommunicationService {
   }
   public getMovies() {
     var movies: Movie[] = [
-      {name: "Fast and Furious 9 asfsa sfsafsdf", duration: "2:22"},
+      {name: "Fast and Furious 9 asfsa sfsafsdf", duration: "22:22"},
       {name: "The Jungle Cruise", duration: "2:39"},
       {name: "Alladin", duration: "1:56"},
       {name: "Army of the Dead", duration: "3:12"},
