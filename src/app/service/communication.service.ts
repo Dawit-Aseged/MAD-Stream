@@ -10,6 +10,7 @@ export class CommunicationService {
   public isSidenavOpen: boolean = true;
   private sidenavStatus = new Subject<boolean>();
   private movies = new Subject<Movie[]>();
+  private searchTerm = new Subject<string>();
 
   constructor(private httpClient: HttpClient) { }
 
@@ -45,4 +46,10 @@ export class CommunicationService {
     this.movies.next(movies);
   }
 
+  public getSearchSub() {
+    return this.searchTerm.asObservable();
+  }
+  public searchMedia(term: string) {
+    this.searchTerm.next(term);
+  }
 }

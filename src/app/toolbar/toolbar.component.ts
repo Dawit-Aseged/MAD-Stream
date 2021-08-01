@@ -36,4 +36,8 @@ export class ToolbarComponent implements OnInit {
       this.searchActive = false
     }
   }
+
+  searchInput(input: HTMLInputElement){
+    this.commService.searchMedia(input.value);
+  }
 }

@@ -1,5 +1,5 @@
 <div class="container" [ngClass]="{containerHandheld: (isHandset | async)!.matches}">
 
-  <app-film *ngFor="let movie of movies" [title]="movie.name" [description]="movie.duration"></app-film>
+  <app-film *ngFor="let movie of filteredMovies" [title]="movie.name" [description]="movie.duration"></app-film>
 
 </div>

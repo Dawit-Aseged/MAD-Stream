@@ -5,7 +5,7 @@
   <span>MAD Streamer</span>
   <div class="spacer"></div>
   <div class="search-region" [ngClass]="{searchRegionHandheld: (isHandset | async)!.matches, searchHandheldActive: searchActive && (isHandset | async)!.matches}">
-    <input #input type="text" class="search-input" (focusout)="inputFocusLeave(input)" />
+    <input #input type="text" class="search-input" (focusout)="inputFocusLeave(input)" (input)="searchInput(input)" />
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 46.806 46.807"
      class="search-icon"
      (click)="searchClicked(input)"

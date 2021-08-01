@@ -11,12 +11,24 @@ import { Observable, Subscription } from 'rxjs';
 export class ContentComponent implements OnInit, OnDestroy {
   isHandset: Observable<BreakpointState> = this.breakpointObserver.observe(Breakpoints.Handset);
   public movies!: Movie[];
+  public filteredMovies!: Movie[];
   moviesSub = new Subscription();
+  searchSub = new Subscription();
+
   constructor(private breakpointObserver: BreakpointObserver, private commService: CommunicationService) {
-    this.moviesSub = commService.getMoviesSub().subscribe((movies) => {
-      this.movies = [...movies];
-      console.log(this.movies)
-    })
+    this.moviesSub = commService.getMoviesSub()
+      .subscribe((movies) => {
+        this.movies = movies;
+        this.filteredMovies = movies;
+      })
+
+    this.searchSub = commService.getSearchSub()
+      .subscribe((searchTerm) => {
+        if(searchTerm.trim() == "")
+          this.filteredMovies = [...this.movies];
+        else
+          this.filteredMovies = this.movies.filter(v => v.name.toLowerCase().includes(searchTerm.toLowerCase()))
+      })
   }
 
   ngOnInit(): void {
@@ -25,5 +37,6 @@ export class ContentComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.moviesSub.unsubscribe();
+    this.searchSub.unsubscribe();
   }
 }
