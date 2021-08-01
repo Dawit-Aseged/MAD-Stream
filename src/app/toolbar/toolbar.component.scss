@@ -18,23 +18,21 @@
     svg {
       height: 30px;
     }
-
   }
   span {
     margin-left: 1em;
     font-size: 1.5em;
     color: white;
+
   }
 
-  .svg-container:hover{
+  .svg-container:hover {
     background-color: rgba(0, 0, 0, 0.3);
   }
 
-  .svg-container:active{
+  .svg-container:active {
     background-color: rgba(0, 0, 0, 0.4);
-
   }
-
 }
 
 .toolbarHandheld {
@@ -66,11 +64,10 @@
     width: 15vw;
     margin-left: 5px;
   }
-  svg{
+  svg {
     height: 35px;
     border-radius: 5px;
   }
-
 }
 
 .searchRegionHandheld {
@@ -81,7 +78,7 @@
     width: 0;
     visibility: hidden;
   }
-  svg{
+  svg {
     height: 30px;
   }
 }
@@ -92,4 +89,14 @@
     visibility: visible;
     width: 25vw;
   }
+}
+
+.disable-select {
+ -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
 }

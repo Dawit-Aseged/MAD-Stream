@@ -1,3 +1,4 @@
+import { element } from 'protractor';
 import { CommunicationService } from '../service/communication.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
@@ -11,7 +12,7 @@ import { Observable, Subscription } from 'rxjs';
 export class SidenavComponent implements OnInit, OnDestroy {
   public sidenavSub: Subscription;
   public isSidenavOpen: boolean;
-  private isMobile!: boolean
+  private isMobile!: boolean;
   isHandset: Observable<BreakpointState> = this.breakpointObserver.observe(Breakpoints.Handset);
 
 
@@ -40,4 +41,10 @@ export class SidenavComponent implements OnInit, OnDestroy {
       this.commService.toggleSidenav();
   }
 
+  optionSelected(element: HTMLAnchorElement) {
+    for(var i = 0; i < element.parentElement?.children.length!; i++){
+      element.parentElement?.children[i].classList.remove("activeButton")
+    }
+    element.classList.add("activeButton")
+  }
 }
