@@ -40,6 +40,7 @@ export class ContentComponent implements OnInit, OnDestroy {
   public filteredMovies!: Movie[];
   moviesSub = new Subscription();
   searchSub = new Subscription();
+  public sortChosen = "By Title";
 
   constructor(private breakpointObserver: BreakpointObserver, private commService: CommunicationService) {
     this.moviesSub = commService.getMoviesSub()
@@ -71,5 +72,20 @@ export class ContentComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.moviesSub.unsubscribe();
     this.searchSub.unsubscribe();
+  }
+
+  sortClick(element: HTMLAnchorElement){
+    var content = element.innerText;
+    this.sortChosen = content;
+    if(content == "Oldest First"){
+
+    }
+    else if (content == "Newest First"){
+
+    }
+    else {
+
+    }
+
   }
 }

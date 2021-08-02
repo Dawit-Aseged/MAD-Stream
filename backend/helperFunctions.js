@@ -1,5 +1,8 @@
 const Path = require("path");
 const FS = require("fs");
+const { fileURLToPath } = require("url");
+const path = require("path");
+const { count } = require("console");
 
 const FileExtension = ['.mp4', '.pdf'] // SUPPORTED FILE EXTENSIONS, COULD ADD MORE.
 
@@ -8,13 +11,13 @@ const FileExtension = ['.mp4', '.pdf'] // SUPPORTED FILE EXTENSIONS, COULD ADD M
  * This function is used to check a directory for existing files
  * and folders within it. When it encounters a directory, it will
  * recursivley check the directory for files within it.
- * 
+ *
  * */
 
 let Files = []; // THE ARRAY USED TO STORE THE NAME AND ADDRESS OF THE FILES IN A DIRECTORY.
 
 const Directories = (Directory) => {
-
+  try{
     FS.readdirSync(Directory).forEach(File => { // READ ALL THE FILES AND FOLDERS IN A CERTAIN DIRECTORY. (Non recusive + returns an array of files within that directory)
         const Absolute = Path.join(Directory, File); // THE DIRECTORY GIVEN AND THE FILE ARE LINKED.(I.E. "D:\\FOLDER\\FILE OR D:\\FOLDER\\FOLDER")
 
@@ -29,8 +32,11 @@ const Directories = (Directory) => {
             }
         }
     });
-
     return Files; // RETURN THE FILES/DIRECTORIES IN THE ARRAY.
+  }
+  catch(error) {
+    console.log(error)
+  }
 }
 
 /**
@@ -38,16 +44,21 @@ const Directories = (Directory) => {
  * Honestly, I didn't know what to name this function lol. But this function
  * is used to read the contents of the text file in the database folder and
  * pass it as a parameter to the Directories function.
- * 
+ *
  */
 const FinalDir = (finalDirPath) => {
-    let AllFiles = [];
-    const array = FS.readFileSync(finalDirPath).toString().replace(/\r\n/g, '\n').split('\n');
+  let fullFilePath = path.join(__dirname, finalDirPath);
 
-    for (let i of array) {
-        AllFiles = Directories(`${i}`);
+    let AllFiles = [];
+    const array = FS.readFileSync(fullFilePath).toString().replace(/\r\n/g, '\n').split('\n');
+
+    while(array[array.length - 1] == "" || array[array.length - 1].trim() == ""){
+      array.pop();
     }
 
+    for (let i of array) {
+      AllFiles = Directories(`${i}`);
+    }
     return AllFiles;
 }
 
@@ -56,7 +67,7 @@ const FinalDir = (finalDirPath) => {
  * This function is used to add a new directory that has been sent from the user.
  * This function is invoked from the POST method of the '/dapi/save' location in
  * index.js.
- * 
+ *
  */
 const AddDirectory = (Directory) => {
     FS.writeFileSync('../Database/addresses.txt', `${Directory}\n`, 'utf8'); // READ THE CONTENTS OF THE FILE SYNCHRONOUSLY.

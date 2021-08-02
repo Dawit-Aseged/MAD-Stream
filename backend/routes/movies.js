@@ -1,8 +1,8 @@
 /**
- * 
+ *
  * THIS FILE IS USED TO ROUTE EVERY PATH THAT IS WITHIN
  * '/dapi/movies'. IT JUST MAKES IT EASIER FOR ACCESS.
- * 
+ *
  */
 
 const express = require('express')
@@ -11,7 +11,7 @@ const Dir = require("../helperFunctions")
 
 routes.get('/', (req, res) => {
     res.status(200).json({
-        newMovies: Dir.FinalDir('../Database/addresses.txt'),
+        newMovies: Dir.FinalDir('./Database/addresses.txt'),
     })
 })
 
