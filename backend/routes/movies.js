@@ -13,6 +13,7 @@ routes.get('/', (req, res) => {
     res.status(200).json({
         newMovies: Dir.FinalDir('./Database/addresses.txt'),
     })
+    Dir.cleanFiles();
 })
 
 // FUNCTION USED TO GET A PATH(WILL DEPRECATE IT LATER, MAYBE)

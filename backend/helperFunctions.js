@@ -14,8 +14,8 @@ const FileExtension = ['.mp4', '.pdf'] // SUPPORTED FILE EXTENSIONS, COULD ADD M
  *
  * */
 
-let Files = []; // THE ARRAY USED TO STORE THE NAME AND ADDRESS OF THE FILES IN A DIRECTORY.
 
+let Files = []; // THE ARRAY USED TO STORE THE NAME AND ADDRESS OF THE FILES IN A DIRECTORY.
 const Directories = (Directory) => {
   try{
     FS.readdirSync(Directory).forEach(File => { // READ ALL THE FILES AND FOLDERS IN A CERTAIN DIRECTORY. (Non recusive + returns an array of files within that directory)
@@ -32,11 +32,12 @@ const Directories = (Directory) => {
             }
         }
     });
-    return Files; // RETURN THE FILES/DIRECTORIES IN THE ARRAY.
   }
   catch(error) {
     console.log(error)
   }
+
+  return Files; // RETURN THE FILES/DIRECTORIES IN THE ARRAY.
 }
 
 /**
@@ -73,4 +74,7 @@ const AddDirectory = (Directory) => {
     FS.writeFileSync('../Database/addresses.txt', `${Directory}\n`, 'utf8'); // READ THE CONTENTS OF THE FILE SYNCHRONOUSLY.
 }
 
-module.exports = { FinalDir, AddDirectory };
+const cleanFiles = () => {
+  Files = [];
+}
+module.exports = { FinalDir, AddDirectory, cleanFiles };

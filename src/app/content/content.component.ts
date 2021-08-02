@@ -46,13 +46,7 @@ export class ContentComponent implements OnInit, OnDestroy {
     this.moviesSub = commService.getMoviesSub()
       .subscribe((movies) => {
 
-        this.movies = movies.map(el => {
-          var movie: Movie = {
-            name: el.name,
-            duration: el.duration.split(":")[0] +" hr : "+ el.duration.split(":")[1] + " min"
-          }
-          return movie;
-        });
+        this.movies = movies;
         this.filteredMovies = [...this.movies];
       })
 
@@ -61,7 +55,7 @@ export class ContentComponent implements OnInit, OnDestroy {
         if (searchTerm.trim() == "")
           this.filteredMovies = [...this.movies];
         else
-          this.filteredMovies = this.movies.filter(v => v.name.toLowerCase().includes(searchTerm.toLowerCase()))
+          this.filteredMovies = this.movies.filter(v => v.Movie.toLowerCase().includes(searchTerm.toLowerCase()))
       })
   }
 

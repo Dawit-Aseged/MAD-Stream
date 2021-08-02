@@ -1,4 +1,4 @@
 export interface Movie {
-  name: string;
-  duration: string;
+  Movie: string;
+  Location: string;
 }

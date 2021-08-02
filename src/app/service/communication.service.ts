@@ -32,18 +32,22 @@ export class CommunicationService {
     return this.movies.asObservable();
   }
   public getMovies() {
-    var movies: Movie[] = [
-      {name: "Fast and Furious 9 asfsa sfsafsdf", duration: "22:22"},
-      {name: "The Jungle Cruise", duration: "2:39"},
-      {name: "Alladin", duration: "1:56"},
-      {name: "Army of the Dead", duration: "3:12"},
-      {name: "Fast and Furious 9", duration: "2:22"},
-      {name: "The Jungle Cruise", duration: "2:39"},
-      {name: "Alladin", duration: "1:56"},
-      {name: "Army of the Dead", duration: "3:12"}
-    ]
+    this.httpClient.get<{newMovies: Movie[]}>("http://localhost:8000/dapi/movies")
+      .subscribe((movies) => {
+        console.log(movies.newMovies)
+        this.movies.next(movies.newMovies);
+      })
+    // var movies: Movie[] = [
+    //   {name: "Fast and Furious 9 asfsa sfsafsdf", duration: "22:22"},
+    //   {name: "The Jungle Cruise", duration: "2:39"},
+    //   {name: "Alladin", duration: "1:56"},
+    //   {name: "Army of the Dead", duration: "3:12"},
+    //   {name: "Fast and Furious 9", duration: "2:22"},
+    //   {name: "The Jungle Cruise", duration: "2:39"},
+    //   {name: "Alladin", duration: "1:56"},
+    //   {name: "Army of the Dead", duration: "3:12"}
+    // ]
 
-    this.movies.next(movies);
   }
 
   public getSearchSub() {
