@@ -1,15 +1,14 @@
 import { Movie } from 'src/models/movie.model';
-import { CommunicationService } from './../service/communication.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { Observable, Subscription } from 'rxjs';
 import { trigger, state, style, animate, transition } from '@angular/animations';
-
+import { CommunicationService } from 'src/app/service/communication.service';
 
 @Component({
-  selector: 'app-content',
-  templateUrl: './content.component.html',
-  styleUrls: ['./content.component.scss'],
+  selector: 'app-movie',
+  templateUrl: './movie.component.html',
+  styleUrls: ['./movie.component.scss'],
   animations: [
     trigger(
       'inOutAnimation',
@@ -34,7 +33,8 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
     )
   ]
 })
-export class ContentComponent implements OnInit, OnDestroy {
+
+export class MovieComponent implements OnInit, OnDestroy {
   isHandset: Observable<BreakpointState> = this.breakpointObserver.observe(Breakpoints.Handset);
   public movies!: Movie[];
   public filteredMovies!: Movie[];

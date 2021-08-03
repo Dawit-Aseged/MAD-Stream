@@ -1,3 +1,4 @@
+import { element } from 'protractor';
 import { Movie } from 'src/models/movie.model';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
@@ -7,6 +8,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class CommunicationService {
+  private currentIP = "192.168.1.5";
   public isSidenavOpen: boolean = true;
   private sidenavStatus = new Subject<boolean>();
   private movies = new Subject<Movie[]>();
@@ -32,10 +34,18 @@ export class CommunicationService {
     return this.movies.asObservable();
   }
   public getMovies() {
-    this.httpClient.get<{newMovies: Movie[]}>("http://localhost:8000/dapi/movies")
+    this.httpClient.get<{newMovies: Movie[]}>(`http://${this.currentIP}:8000/dapi/movies`)
       .subscribe((movies) => {
-        console.log(movies.newMovies)
-        this.movies.next(movies.newMovies);
+        var trimmedMovies: Movie[] = movies.newMovies.map(movie => {
+          return {
+            Movie: movie.Movie.substring(0, movie.Movie.lastIndexOf(".")),
+            Location: movie.Location
+          }
+        })
+
+
+
+        this.movies.next(trimmedMovies);
       })
     // var movies: Movie[] = [
     //   {name: "Fast and Furious 9 asfsa sfsafsdf", duration: "22:22"},
