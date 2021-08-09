@@ -7,7 +7,7 @@ const FileExtension = ['.mp4', '.pdf'] // SUPPORTED FILE EXTENSIONS, COULD ADD M
 const DurationFetcher = async(Absolute) => {
     let durr;
     await getVideoDurationInSeconds(Absolute).then((duration) => {
-        durr = duration // HOW TO RETURN 2 INSTANCES AT THE SAME TIME BECASE OF THE ASYNC PREOPERTY. THIS GETS EXECUTED LAST. CLEAR THE ARRAY AFTER YOU CALL AN INSTANCE OF THIS ARRAY.
+        durr = new Date(duration * 1000).toISOString().substr(11, 8)
     }).catch(err => {
         console.error(err);
     })
@@ -70,7 +70,7 @@ const FinalDir = (finalDirPath) => {
     return AllFiles;
 }
 
-const GetFiles = (addy) => {
+const GetFiles = (addy) => { // THIS FUNCTIONS IS USED TO INITIALIZE THE FILES WHILE THE USER CALLS '/' (THIS IS/MUST CALLED IN THE INDEX / MOVIES FILE, OR ANYWHERE WE WANT TO USE THE DB)
     FinalDir(addy);
 }
 
