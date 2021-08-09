@@ -4,6 +4,8 @@ const Dir = require("./helperFunctions");
 
 const Movies = require("./routes/movies");
 
+Dir.GetFiles('./Database/addresses.txt') // HAD TO INITIALIZE THE FILES FIRST SO THAT IT WOULDNT RETURN AN EMPTY ARRAY WHEN THE USER CALLS IT ON THE FIRST TIME.
+
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");

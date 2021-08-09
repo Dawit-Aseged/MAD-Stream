@@ -10,6 +10,7 @@ const routes = express.Router();
 const Dir = require("../helperFunctions")
 
 routes.get('/', (req, res) => {
+
     res.status(200).json({
         newMovies: Dir.FinalDir('./Database/addresses.txt'),
     })
