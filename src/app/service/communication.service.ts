@@ -1,4 +1,3 @@
-import { element } from 'protractor';
 import { Movie } from 'src/models/movie.model';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
@@ -39,7 +38,8 @@ export class CommunicationService {
         var trimmedMovies: Movie[] = movies.newMovies.map(movie => {
           return {
             Movie: movie.Movie.substring(0, movie.Movie.lastIndexOf(".")),
-            Location: movie.Location
+            Location: movie.Location,
+            Duration: movie.Duration
           }
         })
 
@@ -47,17 +47,6 @@ export class CommunicationService {
 
         this.movies.next(trimmedMovies);
       })
-    // var movies: Movie[] = [
-    //   {name: "Fast and Furious 9 asfsa sfsafsdf", duration: "22:22"},
-    //   {name: "The Jungle Cruise", duration: "2:39"},
-    //   {name: "Alladin", duration: "1:56"},
-    //   {name: "Army of the Dead", duration: "3:12"},
-    //   {name: "Fast and Furious 9", duration: "2:22"},
-    //   {name: "The Jungle Cruise", duration: "2:39"},
-    //   {name: "Alladin", duration: "1:56"},
-    //   {name: "Army of the Dead", duration: "3:12"}
-    // ]
-
   }
 
   public getSearchSub() {

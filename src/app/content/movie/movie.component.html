@@ -5,7 +5,7 @@ class="container"
   <app-film
     *ngFor="let movie of filteredMovies"
     [title]="movie.Movie"
-
+    [description]="movie.Duration"
     [@inOutAnimation]
   ></app-film>
 </div>
