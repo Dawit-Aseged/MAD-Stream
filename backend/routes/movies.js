@@ -9,7 +9,11 @@ const express = require('express')
 const routes = express.Router();
 const Dir = require("../helperFunctions")
 
+Dir.GetFiles('./Database/addresses.txt') // HAD TO INITIALIZE THE FILES FIRST SO THAT IT WOULDNT RETURN AN EMPTY ARRAY WHEN THE USER CALLS IT ON THE FIRST TIME.
+
+
 routes.get('/', (req, res) => {
+
     res.status(200).json({
         newMovies: Dir.FinalDir('./Database/addresses.txt'),
     })
