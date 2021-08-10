@@ -1,0 +1,44 @@
+@import "../../../variables.scss";
+.container {
+  max-height: calc(100vh - 64px - 4em); // 64px for the toolbar, 2em for container padding (1 top, 1 bottom), 2em for sort container
+  padding-top: 1em;
+  padding-bottom: 1em;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+  app-film {
+    width: 20%;
+    margin: 1rem;
+  }
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgba(194, 211, 237, 0.5);
+  border-radius: 3px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(31, 38, 46);
+  border-radius: 2px;
+
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.containerHandheld {
+  max-height: calc(100vh - 56px - 4em); // 56px for the toolbar, 2em for container padding (1 top, 1 bottom), 2em for sort container
+  app-film {
+    width: 40%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}

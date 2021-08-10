@@ -8,16 +8,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
-import { ContentComponent } from './content/content.component';
 import { FilmComponent } from './content/film/film.component';
+import { MovieComponent } from './content/movie/movie.component';
+import { ShowComponent } from './content/show/show.component';
+import { MusicComponent } from './content/music/music.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ToolbarComponent,
     SidenavComponent,
-    ContentComponent,
     FilmComponent,
+    MovieComponent,
+    ShowComponent,
+    MusicComponent,
   ],
   imports: [
     BrowserModule,

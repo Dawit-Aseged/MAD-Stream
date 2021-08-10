@@ -14,15 +14,15 @@
   }"
 >
 <div class="button-list disable-select">
-  <a class="activeButton" #movie (click)="optionSelected(movie)">
+  <a routerLinkActive="activeButton" routerLink="/movies" #movie (click)="optionSelected(movie)">
     <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 0 48 24" width="48px" fill="#FFFFFF"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M4 6.47L5.76 10H20v8H4V6.47M22 4h-4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4z"/></svg>
     <span>Movies</span>
   </a>
-  <a #show (click)="optionSelected(show)">
+  <a routerLinkActive="activeButton" routerLink="/shows" #show (click)="optionSelected(show)">
     <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 0 48 24" width="48px" fill="#FFFFFF"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M21 2H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h7v2H8v2h8v-2h-2v-2h7c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H3V4h18v12z"/></svg>
     TV Shows
   </a>
-  <a #music (click)="optionSelected(music)">
+  <a routerLinkActive="activeButton" routerLink="/music" #music (click)="optionSelected(music)">
     <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 0 48 24" width="48px" fill="#FFFFFF"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M20 2H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12zm-7.5-1c1.38 0 2.5-1.12 2.5-2.5V7h3V5h-4v5.51c-.42-.32-.93-.51-1.5-.51-1.38 0-2.5 1.12-2.5 2.5s1.12 2.5 2.5 2.5zM4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6z"/></svg>
     Music
   </a>
