@@ -1,1 +1,11 @@
-<p>show works!</p>
+<div
+class="container"
+[ngClass]="{ containerHandheld: (isHandset | async)!.matches }"
+>
+  <app-film
+    *ngFor="let show of filteredShows"
+    [title]="show.Name"
+    [description]="'Seasons - '+show.NumOfSeasons"
+    [@inOutAnimation]
+  ></app-film>
+</div>

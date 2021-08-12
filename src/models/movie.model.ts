@@ -3,3 +3,9 @@ export interface Movie {
   Location: string;
   Duration: string;
 }
+
+export interface Show {
+  Name: string;
+  Location: string;
+  NumOfSeasons: string;
+}

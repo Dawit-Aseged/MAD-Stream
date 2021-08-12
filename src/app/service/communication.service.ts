@@ -1,4 +1,4 @@
-import { Movie } from 'src/models/movie.model';
+import { Movie, Show } from 'src/models/movie.model';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
@@ -11,6 +11,7 @@ export class CommunicationService {
   public isSidenavOpen: boolean = true;
   private sidenavStatus = new Subject<boolean>();
   private movies = new Subject<Movie[]>();
+  private shows = new Subject<Show[]>();
   private searchTerm = new Subject<string>();
 
   constructor(private httpClient: HttpClient) { }
@@ -32,6 +33,10 @@ export class CommunicationService {
   public getMoviesSub() {
     return this.movies.asObservable();
   }
+
+  public getShowsSub() {
+    return this.shows.asObservable();
+  }
   public getMovies() {
     this.httpClient.get<{newMovies: Movie[]}>(`http://${this.currentIP}:8000/dapi/movies`)
       .subscribe((movies) => {
@@ -49,6 +54,28 @@ export class CommunicationService {
       })
   }
 
+  public getShows() {
+    
+    var shows: Show[] = [
+      {
+        Name: "Some Name",
+        Location: "Some Location",
+        NumOfSeasons: "7"
+      },
+      {
+        Name: "Some Other Name",
+        Location: "Some Other Location",
+        NumOfSeasons: "5"
+      },
+      {
+        Name: "Some Name",
+        Location: "Boom",
+        NumOfSeasons: "23"
+      }
+    ]
+
+    this.shows.next(shows)
+  }
   public getSearchSub() {
     return this.searchTerm.asObservable();
   }
