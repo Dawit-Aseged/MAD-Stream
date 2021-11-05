@@ -1,0 +1,14 @@
+@import "../../../variables.scss";
+@import "../containerStyle.scss";
+
+.container {
+  app-film{
+    width: 26%;
+  }
+}
+
+.containerHandheld {
+  app-film {
+    width: 80%;
+  }
+}

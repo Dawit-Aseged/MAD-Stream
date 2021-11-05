@@ -20,7 +20,7 @@
   }
 
   .title {
-    font-size: 1em;
+    font-size: 1.2em;
     margin-top: 5px;
     overflow: hidden;
     max-width: 90%;
@@ -29,10 +29,12 @@
   }
 
   .description {
-    font-size: 0.8em;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    color: $fontColorTransparent;
+    font-size: 1em;
+    margin: 5px;
+    margin-left: 15px;
     text-overflow: ellipsis;
+    text-align: left;
   }
 }
 

@@ -12,6 +12,7 @@ import { FilmComponent } from './content/film/film.component';
 import { MovieComponent } from './content/movie/movie.component';
 import { ShowComponent } from './content/show/show.component';
 import { MusicComponent } from './content/music/music.component';
+import { ChosenShowComponent } from './content/chosen-show/chosen-show.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { MusicComponent } from './content/music/music.component';
     MovieComponent,
     ShowComponent,
     MusicComponent,
+    ChosenShowComponent,
   ],
   imports: [
     BrowserModule,

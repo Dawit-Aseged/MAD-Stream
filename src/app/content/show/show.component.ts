@@ -54,7 +54,7 @@ isHandset: Observable<BreakpointState> = this.breakpointObserver.observe(Breakpo
           this.filteredShows = [...this.shows];
         else
           this.filteredShows = this.shows.filter(v => v.Name.toLowerCase().includes(searchTerm.toLowerCase()))
-      })  
+      })
    }
 
   ngOnInit(): void {

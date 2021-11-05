@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class CommunicationService {
-  private currentIP = "192.168.1.5";
+  private currentIP = "192.168.128.204";
   public isSidenavOpen: boolean = true;
   private sidenavStatus = new Subject<boolean>();
   private movies = new Subject<Movie[]>();
@@ -55,7 +55,7 @@ export class CommunicationService {
   }
 
   public getShows() {
-    
+
     var shows: Show[] = [
       {
         Name: "Some Name",
