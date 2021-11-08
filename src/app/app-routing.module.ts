@@ -12,7 +12,7 @@ const routes: Routes = [
    {path: 'shows', component: ShowComponent},
    {path: 'music', component: MusicComponent},
    {path: 'show/:showId', component: ChosenShowComponent},
-   {path: 'player/:path', component: PlayerComponent}
+   {path: 'player', component: PlayerComponent}
 ];
 
 @NgModule({

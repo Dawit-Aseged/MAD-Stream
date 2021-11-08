@@ -4,6 +4,7 @@ import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/l
 import { Observable, Subscription } from 'rxjs';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import { CommunicationService } from 'src/app/service/communication.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-movie',
@@ -42,7 +43,7 @@ export class MovieComponent implements OnInit, OnDestroy {
   searchSub = new Subscription();
   public sortChosen = "By Title";
 
-  constructor(private breakpointObserver: BreakpointObserver, private commService: CommunicationService) {
+  constructor(private breakpointObserver: BreakpointObserver, private commService: CommunicationService, private router: Router, private route: ActivatedRoute) {
     this.moviesSub = commService.getMoviesSub()
       .subscribe((movies) => {
         this.movies = movies;
@@ -68,7 +69,8 @@ export class MovieComponent implements OnInit, OnDestroy {
   }
 
   movieClicked(path: string) {
-    console.log(path)
+    this.commService.setChosenMovie(path);
+    this.router.navigate(['/player']);
   }
   sortClick(element: HTMLAnchorElement){
     var content = element.innerText;

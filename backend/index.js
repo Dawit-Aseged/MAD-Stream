@@ -3,7 +3,7 @@ const app = express();
 const Dir = require("./helperFunctions");
 
 const Movies = require("./routes/movies");
-
+const Stream = require("./routes/stream");
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -12,7 +12,7 @@ app.use(function(req, res, next) {
 app.use(express.urlencoded({ extended: false }));
 //app.use(express.json); // USED TO PARSE JSON.
 app.use('/dapi/movies', Movies); // USING THE ROUTES SPECIFIED IN THE ROUTES FOLDER.
-
+app.use('/dapi/stream', Stream);
 
 app.get("/", (req, res) => {
     // This is reserved for hosting the angular file

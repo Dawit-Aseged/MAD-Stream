@@ -13,7 +13,7 @@ export class CommunicationService {
   private movies = new Subject<Movie[]>();
   private shows = new Subject<Show[]>();
   private searchTerm = new Subject<string>();
-
+  private chosenMovie = "";
   constructor(private httpClient: HttpClient) { }
 
   public changeSidenav(sidenavStatus: boolean){
@@ -47,9 +47,6 @@ export class CommunicationService {
             Duration: movie.Duration
           }
         })
-
-
-
         this.movies.next(trimmedMovies);
       })
   }
@@ -81,5 +78,12 @@ export class CommunicationService {
   }
   public searchMedia(term: string) {
     this.searchTerm.next(term);
+  }
+
+  public setChosenMovie(movie: string) {
+    this.chosenMovie = movie;
+  }
+  public getChosenMovie() {
+    return this.chosenMovie;
   }
 }
