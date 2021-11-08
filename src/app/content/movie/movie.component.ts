@@ -67,6 +67,9 @@ export class MovieComponent implements OnInit, OnDestroy {
     this.searchSub.unsubscribe();
   }
 
+  movieClicked(path: string) {
+    console.log(path)
+  }
   sortClick(element: HTMLAnchorElement){
     var content = element.innerText;
     this.sortChosen = content;

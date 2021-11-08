@@ -1,3 +1,4 @@
+import { PlayerComponent } from './content/player/player.component';
 import { ChosenShowComponent } from './content/chosen-show/chosen-show.component';
 import { MusicComponent } from './content/music/music.component';
 import { ShowComponent } from './content/show/show.component';
@@ -10,7 +11,8 @@ const routes: Routes = [
    {path: 'movies', component: MovieComponent},
    {path: 'shows', component: ShowComponent},
    {path: 'music', component: MusicComponent},
-   {path: 'show/:showId', component: ChosenShowComponent}
+   {path: 'show/:showId', component: ChosenShowComponent},
+   {path: 'player/:path', component: PlayerComponent}
 ];
 
 @NgModule({
