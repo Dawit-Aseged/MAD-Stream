@@ -32,7 +32,6 @@ routes.get("", (req, res) => {
               "Content-Length": contentLength,
               "Content-Type": "video/mp4",
           };
-
           res.writeHead(206, headers);
           const videoStream = fs.createReadStream(videoPath, { start, end }); // The read stream
           videoStream.pipe(res); // The response

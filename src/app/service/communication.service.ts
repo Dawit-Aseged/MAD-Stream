@@ -7,13 +7,15 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class CommunicationService {
+  // Change the below code when hosting to a remote client
   private currentIP = "192.168.128.204";
+  // private currentIP = "localhost"
   public isSidenavOpen: boolean = true;
   private sidenavStatus = new Subject<boolean>();
   private movies = new Subject<Movie[]>();
   private shows = new Subject<Show[]>();
   private searchTerm = new Subject<string>();
-  private chosenMovie = "";
+  private chosenMovie!:Movie;
   constructor(private httpClient: HttpClient) { }
 
   public changeSidenav(sidenavStatus: boolean){
@@ -80,7 +82,7 @@ export class CommunicationService {
     this.searchTerm.next(term);
   }
 
-  public setChosenMovie(movie: string) {
+  public setChosenMovie(movie: Movie) {
     this.chosenMovie = movie;
   }
   public getChosenMovie() {

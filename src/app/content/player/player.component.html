@@ -1,5 +1,9 @@
-<p>Path is :- {{path}}</p>
+<div class="title-container">
+  <p class="title">{{title}}</p>
+</div>
 
-<video id="videoPlayer" width="650px">
-  <source [src]="streamPath" type="video/mp4"/>
-</video>
+<div class="video-container">
+  <video id="videoPlayer" width="650px" controls>
+    <source [src]="streamPath" type="video/mp4"/>
+  </video>
+</div>

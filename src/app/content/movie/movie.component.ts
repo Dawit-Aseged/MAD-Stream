@@ -48,8 +48,9 @@ export class MovieComponent implements OnInit, OnDestroy {
       .subscribe((movies) => {
         this.movies = movies;
         this.filteredMovies = [...this.movies];
+        console.log("Movie Fetching Ended")
       })
-
+      console.log("Movie Fetching Started")
     this.searchSub = commService.getSearchSub()
       .subscribe((searchTerm) => {
         if (searchTerm.trim() == "")
@@ -68,8 +69,9 @@ export class MovieComponent implements OnInit, OnDestroy {
     this.searchSub.unsubscribe();
   }
 
-  movieClicked(path: string) {
-    this.commService.setChosenMovie(path);
+  movieClicked(movie: Movie) {
+
+    this.commService.setChosenMovie(movie);
     this.router.navigate(['/player']);
   }
   sortClick(element: HTMLAnchorElement){

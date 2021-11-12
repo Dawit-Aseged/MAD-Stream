@@ -1,0 +1,16 @@
+.title-container {
+  width: 100%;
+  padding: 0.5em;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.video-container{
+  width: 100%;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  #videoPlayer{
+    width:90%
+  }
+}
